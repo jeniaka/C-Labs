@@ -1,0 +1,22 @@
+# All Targets
+all: run
+
+# Tool invocations
+# Executable "LineParser" depends on the files LineParser.o and run.o.
+run: LineParser.o task1b.o
+	gcc -g -m32 -Wall -o LineParser LineParser.o task1c.o
+
+# Depends on the source and header files
+LineParser.o: LineParser.c LineParser.h
+	gcc -m32 -g -Wall -c -o LineParser.o LineParser.c
+
+task1b.o: task1.c
+	gcc -m32 -g -Wall -c -o task1c.o task1.c
+ 
+
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o run
