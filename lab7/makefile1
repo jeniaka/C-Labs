@@ -1,0 +1,14 @@
+all: run
+
+run: hexeditplus.o
+	gcc -g -m32 -Wall -o run hexeditplus.o 
+
+hexeditplus.o: task1.c 
+	gcc -m32 -g -Wall -c -o hexeditplus.o task1.c
+
+
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o run
